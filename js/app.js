@@ -18,7 +18,18 @@ createApp({
         }
       ],
       newTask: "",
-
+    }
+  },
+  
+  methods:{
+    addTask(){
+      const newTaskObj = {
+        text: this.newTask.trim(),
+        isDone: false
+      }
+      this.tasks.unshift(newTaskObj);
+      this.newTask = "";
     }
   }
+  
 }).mount('#app')
