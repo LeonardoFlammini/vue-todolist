@@ -29,6 +29,9 @@ createApp({
       }
       this.tasks.unshift(newTaskObj);
       this.newTask = "";
+    },
+    deleteTask(index){
+      this.tasks.splice(index, 1);
     }
   }
   

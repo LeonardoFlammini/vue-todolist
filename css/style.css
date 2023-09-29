@@ -14,3 +14,7 @@
 .list-lf{
   width: 80%;
 }
+
+i{
+  cursor: pointer;
+}

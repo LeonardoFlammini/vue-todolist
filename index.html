@@ -32,10 +32,10 @@
       <div class="list-lf">
         <ul class="list-group">
           <li
-            v-for="task in tasks"
+            v-for="(task,index) in tasks"
             class="list-group-item d-flex justify-content-between  align-items-center">
             <span>{{task.text}}</span>
-            <i class="fa-solid fa-xmark"></i>
+            <i class="fa-solid fa-xmark" @click="deleteTask(index)"></i>
           </li>
         </ul>
       </div>
