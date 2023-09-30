@@ -18,20 +18,34 @@ createApp({
         }
       ],
       newTask: "",
+      message: "",
     }
   },
   
   methods:{
     addTask(){
-      const newTaskObj = {
-        text: this.newTask.trim(),
-        isDone: false
+      if(this.newTask.trim().length > 5){
+        const newTaskObj = {
+          text: this.newTask.trim(),
+          isDone: false
+        }
+        this.tasks.unshift(newTaskObj);
+        this.newTask = "";
+        this.message = "";
+      }else{
+        this.message = "Inserisci almeno 5 caratteri";
       }
-      this.tasks.unshift(newTaskObj);
-      this.newTask = "";
     },
     deleteTask(index){
       this.tasks.splice(index, 1);
+      console.log(this.tasks.length);
+    },
+    setDone(index){
+      if (this.tasks[index].isDone === true){
+        this.tasks[index].isDone = false;
+      }else{
+        this.tasks[index].isDone = true;
+      };
     }
   }
   

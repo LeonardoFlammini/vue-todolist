@@ -22,22 +22,40 @@
           v-model="newTask"
           type="text"
           placeholder="Inserisci task"
-          class="form-control">
+          class="form-control"
+          @keyup.enter="addTask()">
       </div>
       <div class="col-1">
         <button class="btn btn-primary " @click="addTask()">Inserisci</button>
       </div>
     </div>
+    <div v-if="message.length > 0" class="row justify-content-center">{{message}}</div>
     <div class="row my-5 justify-content-center  ">
       <div class="list-lf">
         <ul class="list-group">
           <li
             v-for="(task,index) in tasks"
-            class="list-group-item d-flex justify-content-between  align-items-center">
-            <span>{{task.text}}</span>
-            <i class="fa-solid fa-xmark" @click="deleteTask(index)"></i>
+            class="list-group-item d-flex justify-content-between align-items-center"
+            >
+            <span
+              @click="setDone(index)"
+              class="flex-grow-1 ">
+              {{task.text}}
+            </span>
+            <div
+              v-if="tasks[index].isDone"
+              class="actions-container">
+              <i  class="fa-solid fa-check"></i>
+              <i class="fa-solid fa-xmark" @click="deleteTask(index)"></i>
+            </div>
           </li>
         </ul>
+      </div>
+      <div v-if="tasks.length === 0 " class="no-items card">
+        <div class="card-body">
+          <span>Non ci sono task!</span>
+          <i class="fa-regular fa-face-laugh-wink"></i>
+        </div>
       </div>
     </div>
   </div>

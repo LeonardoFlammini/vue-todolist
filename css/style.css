@@ -11,10 +11,39 @@
   filter: contrast(0);
 }
 
-.list-lf{
+.list-lf,
+.no-items{
   width: 80%;
 }
 
-i{
+li span {
   cursor: pointer;
+  user-select: none;
+}
+
+.list-lf i{
+  cursor: pointer;
+}
+
+.no-items{
+  background-color: rgb(248, 248, 248);
+  user-select: none;
+}
+
+.no-items i {
+  margin-left: 5px;
+  font-size: 1.3rem;
+}
+
+.actions-container i{
+  margin-left: 10px;
+}
+
+.actions-container .fa-check{
+  color: green;
+  cursor: auto;
+}
+
+.actions-container .fa-xmark{
+  color: red;
 }
